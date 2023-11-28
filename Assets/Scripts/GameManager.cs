@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public Transform playerPaddle;
     public Transform enemyPaddle;
     public BallController ballController;
+    public EnemyPaddleController player2;
 
     public int playerScore = 0;
     public int enemyScore = 0;
@@ -66,6 +67,8 @@ public class GameManager : MonoBehaviour
         endScreen.SetActive(false);
         loseScreen.SetActive(false);
         victoryScreen.SetActive(false);
+
+        player2.isPlayer = false;
     }
 
     private void LoadMenu()

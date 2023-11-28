@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerPaddleController : MonoBehaviour
 {
     public float speed = 5f;
+    public EnemyPaddleController enemyPaddle;
     
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,8 @@ public class PlayerPaddleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (enemyPaddle.isPlayer == false)
+        {
         //vertical input detector
         float moveInput = Input.GetAxis("Vertical");
 
@@ -26,5 +29,21 @@ public class PlayerPaddleController : MonoBehaviour
 
         //update paddle position
         transform.position = newPosition;
+        }
+
+        if (enemyPaddle.isPlayer == true)
+        {
+            //vertical input detector
+            float moveInput = Input.GetAxis("Vertical3");
+
+            //new position
+            Vector3 newPosition = transform.position + Vector3.up * moveInput * speed * Time.deltaTime;
+
+            //block screen borders
+            newPosition.y = Mathf.Clamp(newPosition.y, -4.5f, 4.5f);
+
+            //update paddle position
+            transform.position = newPosition;
+        }
     }
 }

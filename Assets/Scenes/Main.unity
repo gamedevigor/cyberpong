@@ -1114,6 +1114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4.8
+  isPlayer: 0
 --- !u!1 &956773176
 GameObject:
   m_ObjectHideFlags: 0
@@ -1419,6 +1420,7 @@ MonoBehaviour:
   playerPaddle: {fileID: 2066147824}
   enemyPaddle: {fileID: 862834664}
   ballController: {fileID: 1954713084}
+  player2: {fileID: 862834665}
   playerScore: 0
   enemyScore: 0
   textPlayerPoints: {fileID: 1777367271}
@@ -2165,6 +2167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  enemyPaddle: {fileID: 862834665}
 --- !u!212 &2066147822
 SpriteRenderer:
   m_ObjectHideFlags: 0
