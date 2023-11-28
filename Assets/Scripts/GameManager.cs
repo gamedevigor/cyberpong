@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,7 +18,11 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI textEnemyPoints;
 
     public int winPoints = 5;
-    
+
+    public GameObject endScreen;
+    public GameObject victoryScreen;
+    public GameObject loseScreen;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,9 +31,19 @@ public class GameManager : MonoBehaviour
 
     public void checkWin()
     {
-        if (enemyScore >= winPoints || playerScore >= winPoints) 
+        if (enemyScore >= winPoints) 
         {
-            ResetGame();
+            endScreen.SetActive(true);
+            loseScreen.SetActive(true);
+            Invoke("LoadMenu", 2f);
+
+        }
+
+        else if (playerScore >= winPoints)
+        {
+            endScreen.SetActive(true);
+            victoryScreen.SetActive(true);
+            Invoke("LoadMenu", 2f);
         }
     }
 
@@ -47,6 +62,15 @@ public class GameManager : MonoBehaviour
 
         textPlayerPoints.text = playerScore.ToString();
         textEnemyPoints.text = enemyScore.ToString();
+
+        endScreen.SetActive(false);
+        loseScreen.SetActive(false);
+        victoryScreen.SetActive(false);
+    }
+
+    private void LoadMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 
     public void ScorePlayer()
