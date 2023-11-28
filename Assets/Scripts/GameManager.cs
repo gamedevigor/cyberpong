@@ -67,8 +67,6 @@ public class GameManager : MonoBehaviour
         endScreen.SetActive(false);
         loseScreen.SetActive(false);
         victoryScreen.SetActive(false);
-
-        player2.isPlayer = false;
     }
 
     private void LoadMenu()

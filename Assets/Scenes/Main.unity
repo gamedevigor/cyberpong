@@ -982,6 +982,7 @@ GameObject:
   - component: {fileID: 862834663}
   - component: {fileID: 862834662}
   - component: {fileID: 862834665}
+  - component: {fileID: 862834666}
   m_Layer: 0
   m_Name: EnemyPaddle
   m_TagString: Enemy
@@ -1108,13 +1109,28 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 862834661}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5330d84f810a9184e8c2f45dfc917a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4.8
+--- !u!114 &862834666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862834661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac7fb77405c9c0e48822f609e8533a4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  enemyPaddle: {fileID: 862834665}
   isPlayer: 0
+  spriteRenderer: {fileID: 862834662}
 --- !u!1 &956773176
 GameObject:
   m_ObjectHideFlags: 0
@@ -2168,6 +2184,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   enemyPaddle: {fileID: 862834665}
+  isPlayer: 1
+  spriteRenderer: {fileID: 2066147822}
 --- !u!212 &2066147822
 SpriteRenderer:
   m_ObjectHideFlags: 0

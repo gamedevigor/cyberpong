@@ -10,18 +10,18 @@ public class ColorSelectionButton : MonoBehaviour
 
     public bool isColorPlayer = false;
 
-    public void onButtonClick()
+    public void OnButtonClick()
     {
         paddleReference.color = uiButton.colors.normalColor;
 
         if (isColorPlayer)
         {
-            //SavedColors.Instance.colorPlayer = paddleReference.color;
+            SaveController.Instance.colorPlayer = paddleReference.color;
         }
 
         else
         {
-            //SavedColors.Instance.colorEnemy = paddleReference.color;
+            SaveController.Instance.colorEnemy = paddleReference.color;
         }
     }
 }
