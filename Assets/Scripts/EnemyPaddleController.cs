@@ -18,8 +18,8 @@ public class EnemyPaddleController : MonoBehaviour
 
     private void Update()
     {
-         float targetY = Mathf.Clamp(ball.transform.position.y, -4.5f, 4.5f); //block screen borders
-         Vector2 targetPosition = new Vector2(transform.position.x, targetY);
-         transform.position = Vector2.MoveTowards(transform.position, targetPosition, Time.deltaTime * speed); //follows the ball
+        float targetY = Mathf.Clamp(ball.transform.position.y, -4.5f, 4.5f); //block screen borders
+        Vector2 targetPosition = new Vector2(transform.position.x, targetY);
+        transform.position = Vector2.MoveTowards(transform.position, targetPosition, Time.deltaTime * speed); //follows the ball
     }
 }

@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SaveController : MonoBehaviour
 {
     public Color colorPlayer = Color.white;
     public Color colorEnemy = Color.white;
+
+    public string nameEnemy;
+    public string namePlayer;
 
     private static SaveController _instance;
 
@@ -37,5 +41,20 @@ public class SaveController : MonoBehaviour
         }
 
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    public string GetName(bool isPlayer)
+    {
+        if (string.IsNullOrEmpty(nameEnemy))
+        {
+            nameEnemy = "Player 2";
+        }
+
+        else if (string.IsNullOrEmpty(namePlayer))
+        {
+            namePlayer = "Player 1";
+        }
+
+        return isPlayer ? namePlayer : nameEnemy;
     }
 }

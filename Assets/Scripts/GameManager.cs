@@ -20,9 +20,9 @@ public class GameManager : MonoBehaviour
 
     public int winPoints = 5;
 
+    public TextMeshProUGUI endGameText;
+
     public GameObject endScreen;
-    public GameObject victoryScreen;
-    public GameObject loseScreen;
 
     // Start is called before the first frame update
     void Start()
@@ -32,20 +32,17 @@ public class GameManager : MonoBehaviour
 
     public void checkWin()
     {
-        if (enemyScore >= winPoints) 
+        if (enemyScore >= winPoints || playerScore >= winPoints)
         {
-            endScreen.SetActive(true);
-            loseScreen.SetActive(true);
-            Invoke("LoadMenu", 2f);
-
+            endGame();
         }
+    }
 
-        else if (playerScore >= winPoints)
-        {
-            endScreen.SetActive(true);
-            victoryScreen.SetActive(true);
-            Invoke("LoadMenu", 2f);
-        }
+    public void endGame()
+    {
+        endGameText.text = SaveController.Instance.GetName(playerScore > enemyScore) + " wins";
+        endScreen.SetActive(true);
+        Invoke("LoadMenu", 2f);
     }
 
     public void ResetGame()
@@ -65,8 +62,6 @@ public class GameManager : MonoBehaviour
         textEnemyPoints.text = enemyScore.ToString();
 
         endScreen.SetActive(false);
-        loseScreen.SetActive(false);
-        victoryScreen.SetActive(false);
     }
 
     private void LoadMenu()

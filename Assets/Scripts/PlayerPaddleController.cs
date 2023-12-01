@@ -7,6 +7,7 @@ public class PlayerPaddleController : MonoBehaviour
     public float speed = 5f;
     public EnemyPaddleController enemyPaddle;
     public bool isPlayer = true;
+    public bool isEnemy = true;
     public SpriteRenderer spriteRenderer;
     
     // Start is called before the first frame update
@@ -25,8 +26,9 @@ public class PlayerPaddleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+   
         //vertical input detector
-        float moveInput = Input.GetAxis("Vertical");
+        float moveInput = Input.GetAxis("Vertical3");
 
         //new position
         Vector3 newPosition = transform.position + Vector3.up * moveInput * speed * Time.deltaTime;
