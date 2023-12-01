@@ -40,8 +40,11 @@ public class GameManager : MonoBehaviour
 
     public void endGame()
     {
-        endGameText.text = SaveController.Instance.GetName(playerScore > enemyScore) + " wins";
         endScreen.SetActive(true);
+        string winner = SaveController.Instance.GetName(playerScore > enemyScore);
+        endGameText.text = winner + " wins";
+        SaveController.Instance.SaveWinner(winner);
+
         Invoke("LoadMenu", 2f);
     }
 

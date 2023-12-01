@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SaveController : MonoBehaviour
@@ -11,6 +12,8 @@ public class SaveController : MonoBehaviour
 
     public string nameEnemy;
     public string namePlayer;
+
+    private string savedWinnerKey = "SavedWinner";
 
     private static SaveController _instance;
 
@@ -56,5 +59,29 @@ public class SaveController : MonoBehaviour
         }
 
         return isPlayer ? namePlayer : nameEnemy;
+    }
+
+    public void SaveWinner(string winner)
+    {
+        PlayerPrefs.SetString(savedWinnerKey, winner);
+    }
+
+    public string GetLastWinner()
+    {
+        return PlayerPrefs.GetString(savedWinnerKey);
+    }
+
+    public void ClearSave()
+    {
+        PlayerPrefs.DeleteAll();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void Reset()
+    {
+        nameEnemy = "";
+        namePlayer = "";
+        colorEnemy = Color.white;
+        colorPlayer = Color.white;
     }
 }
